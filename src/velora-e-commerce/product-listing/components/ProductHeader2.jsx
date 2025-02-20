@@ -52,18 +52,18 @@ const Star = () => {
   );
 };
 
-const useGalleyDialog = () => {
-  const [selectedSlide, setSelectedSlide] = useState(0);
-  const handleSelectSlide = (number) => () => {
-    setSelectedSlide(number);
-  };
-  const preventDefault = (e) => e.preventDefault();
-  return {
-    selectedSlide,
-    handleSelectSlide,
-    preventDefault,
-  };
-};
+// const useGalleyDialog = () => {
+//   const [selectedSlide, setSelectedSlide] = useState(0);
+//   const handleSelectSlide = (number) => () => {
+//     setSelectedSlide(number);
+//   };
+//   const preventDefault = (e) => e.preventDefault();
+//   return {
+//     selectedSlide,
+//     handleSelectSlide,
+//     preventDefault,
+//   };
+// };
 
 const useLightbox = () => {
   const [mainApi, setMainApi] = useState();
@@ -110,9 +110,9 @@ const useGalleyDialog = () => {
 };
 
 export function ProductHeader2() {
-  const useActive = useGalleyDialog();
+  // const useActive = useGalleyDialog();
   const useActive = useLightbox(useActive.selectedSlide);
-  const useActive = useGalleyDialog();
+  // const useActive = useGalleyDialog();
   return (
     <header id="relume" className="px-[5%] py-12 md:py-16 lg:py-20">
       <div className="container">
