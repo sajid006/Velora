@@ -2,9 +2,9 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import Survey from '../../../assets/Survey.webp';
+import Survey from '../assets/Survey.webp';
 
-export function Layout117() {
+export function Stats() {
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">

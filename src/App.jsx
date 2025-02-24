@@ -7,6 +7,8 @@ import Checkout from './velora-e-commerce/checkout';
 import OrderHistory from './velora-e-commerce/order-history';
 import User from './velora-e-commerce/user';
 import Wishlist from './velora-e-commerce/wishlist';
+import Signup from './velora-e-commerce/signup';
+import Login from './velora-e-commerce/login';
 import './App.css';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/order-history" element={<OrderHistory />} />
         <Route path="/user" element={<User />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
