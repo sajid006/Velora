@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiUrl = import.meta.env.VITE_API_URL;
 
 const initialState = {
   loading: false,
@@ -19,11 +18,10 @@ export const login = createAsyncThunk(
         userDetails,
         config
       );
-      console.log(res.data);
-      localStorage.setItem("user", res.data.token);
+      localStorage.setItem("user", res.headers.authorization.split(" ")[1]);
       return res.data;
     } catch (e) {
-      console.log(e);
+      console.error(e);
       return rejectWithValue(e.message);
     }
   }
@@ -34,19 +32,21 @@ export const register = createAsyncThunk(
   async (userDetails, { rejectWithValue }) => {
     const config = { withCredentials: true };
     try {
+      console.log(userDetails);
       const res = await axios.post(`${apiUrl}/users`, userDetails, config);
-      console.log(res.data);
-      localStorage.setItem("user", res.data.token);
+      console.log(res);
+      localStorage.setItem("user", res.headers.authorization.split(" ")[1]);
       return res.data;
     } catch (e) {
-      console.log(e);
-      return rejectWithValue(e.message);
+      console.error(e);
+      return rejectWithValue(e.response.data.message);
     }
   }
 );
 
 export const verify = createAsyncThunk("auth/verify", async () => {
-  const userToken = localStorage.getItem("user") ?? null;
+  const userToken = localStorage.getItem("user");
+  if(!userToken) return null;
   console.log(userToken);
   try {
     const userDetails = await axios.post(
@@ -58,16 +58,15 @@ export const verify = createAsyncThunk("auth/verify", async () => {
         },
       }
     );
-    console.log(userDetails.data);
-    return userDetails.data;
+    console.log(userDetails.data.username);
+    return userDetails.data.username;
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return e;
   }
 });
 
-export const logout = createAsyncThunk("auth/logout", async () => {
-  await axios.get(`${apiUrl}/logout`, config);
+export const logout = createAsyncThunk("auth/logout", () => {
   console.log("logging out...");
   localStorage.setItem("user", "");
 });
@@ -82,7 +81,6 @@ export const authSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(login.fulfilled, (state, { payload }) => {
-      console.log(payload);
       state.loading = false;
       state.currentUser = payload.username;
     });
@@ -110,7 +108,6 @@ export const authSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(verify.fulfilled, (state, { payload }) => {
-      console;
       state.loading = false;
       state.currentUser = payload;
     });
@@ -124,7 +121,6 @@ export const authSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(logout.fulfilled, (state, { payload }) => {
-      console;
       state.loading = false;
       state.currentUser = null;
     });

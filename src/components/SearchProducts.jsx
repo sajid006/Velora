@@ -2,16 +2,21 @@
 
 import { Button, Input } from "@relume_io/relume-ui";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 
 const useForm = () => {
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
   const handleSetSearch = (event) => {
     setSearch(event.target.value);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log({ search });
+    if (search.trim()) {
+      navigate(`/product-search?query=${search}`);
+    }
   };
   return {
     search,

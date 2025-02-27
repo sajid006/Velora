@@ -1,14 +1,17 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './velora-e-commerce/home';
-import ProductDetails from './velora-e-commerce/product-details';
-import ProductListing from './velora-e-commerce/product-listing';
-import Cart from './velora-e-commerce/cart';
-import Checkout from './velora-e-commerce/checkout';
-import OrderHistory from './velora-e-commerce/order-history';
-import User from './velora-e-commerce/user';
-import Wishlist from './velora-e-commerce/wishlist';
-import Signup from './velora-e-commerce/signup';
-import Login from './velora-e-commerce/login';
+import Home from './pages/home';
+import ProductDetails from './pages/product-details';
+import ProductListing from './pages/product-listing';
+import Cart from './pages/cart';
+import Checkout from './pages/checkout';
+import OrderHistory from './pages/order-history';
+import User from './pages/user';
+import Wishlist from './pages/wishlist';
+import Signup from './pages/signup';
+import Login from './pages/login';
+import NotFound from './pages/not-found';
+import Categories from './pages/categories'
+import ProductSearch from './pages/product-search';
 import './App.css';
 
 function App() {
@@ -18,13 +21,18 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/product-details" element={<ProductDetails />} />
         <Route path="/product-listing" element={<ProductListing />} />
+        <Route path="/product-search" element={<ProductSearch />}/>
+        {/* <Route path="/about-us" element={<AboutUs />}/> */}
+        {/* <Route path="/career" element={<Career />}/> */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-history" element={<OrderHistory />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/profile" element={<User />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

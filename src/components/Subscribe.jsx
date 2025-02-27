@@ -6,7 +6,7 @@ import Subscription from "../assets/Subscription.webp";
 
 export function Subscribe() {
   return (
-    <section id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28 mt-12">
       <div className="container relative z-10">
         <div className="w-full max-w-lg">
           <h2 className="mb-5 text-5xl font-bold text-text-alternative md:mb-6 md:text-7xl lg:text-8xl">

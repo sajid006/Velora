@@ -2,7 +2,7 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
-import Survey from '../assets/Survey.webp';
+import Survey2 from '../assets/Survey2.webp';
 
 export function Stats() {
   return (
@@ -41,8 +41,8 @@ export function Stats() {
           </div>
         </div>
         <img
-          src={Survey}
-          className="w-full object-cover"
+          src={Survey2}
+          className="w-full h-100 object-cover"
           alt="Relume placeholder image"
         />
       </div>

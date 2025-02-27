@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { Button, Input, Label } from "@relume_io/relume-ui";
 import { BiLogoGoogle } from "react-icons/bi";
+import { isEmail, isStrongPassword } from "validator";
+import { register } from "../store/slices/authSlice";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 export const Signup = (props) => {
   const {
@@ -19,13 +23,53 @@ export const Signup = (props) => {
     ...props,
   };
 
+  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log({ name, email, password });
+    // console.log({ name, email, password });
+    const isValidName = (name) => /^[a-zA-Z\s]+$/.test(name);
+    const isValidUsername = (username) => /^[a-zA-Z][a-zA-Z0-9_]{2,15}$/.test(username);
+    if (!isValidUsername(username)) {
+      alert("Invalid username");
+      return;
+    }
+    if (!isEmail(email)) {
+      alert("Invalid email address");
+      return;
+    }
+    if (!isStrongPassword(password, {
+        minLength: 8,
+        minUppercase: 0,
+        minLowercase: 0,
+        minNumbers: 0,
+        minSymbols: 0,
+    })) {
+      alert("Password must be at least 8 characters long");
+      return;
+    }
+
+    if (!isValidName(name)) {
+      alert("Name must only contain letters, spaces, hyphens, and apostrophes");
+      return;
+    }
+    try {
+      const response = await dispatch(register({ username, name, email, password }));
+      console.log(response);
+      if(response.payload.user) navigate('/');
+      else {
+          alert(response.payload);
+          setPassword('');
+      }
+    } catch (error) {
+      alert(error);
+      setPassword('');
+    }
   };
 
   return (
@@ -39,6 +83,18 @@ export const Signup = (props) => {
             <p className="md:text-md">{description}</p>
           </div>
           <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
+          <div className="grid grid-cols-1">
+              <Label htmlFor="username" className="mb-2">
+                Username*
+              </Label>
+              <Input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </div>
             <div className="grid grid-cols-1">
               <Label htmlFor="name" className="mb-2">
                 Name*
@@ -86,7 +142,7 @@ export const Signup = (props) => {
               </Button>
               <div className="flex justify-center">
                 <p className="hidden md:block">{loginText}</p>
-                <a href={loginLink.url} className="underline">
+                <a href={loginLink.url} className="underline ml-2">
                   {loginLink.text}
                 </a>
               </div>
@@ -110,7 +166,7 @@ export const Signup1Defaults = {
     url: "/login",
   },
   title: "Sign Up",
-  description: "Lorem ipsum dolor sit amet adipiscing elit.",
+  description: "Create a new account at Velora.",
   signUpButton: {
     title: "Sign up",
   },

@@ -59,6 +59,10 @@ export const Login = (props) => {
     try {
         const response = await dispatch(login({ email, password }));
         if(response.payload.user) navigate('/');
+        else {
+            alert('Invalid credentials');
+            setPassword('');
+        }
     } catch (error) {
         console.error(error);
     }
@@ -127,7 +131,7 @@ export const Login = (props) => {
           <div className="mt-5 w-full text-center md:mt-6">
             <div className="flex justify-center">
               <p className="hidden md:block">{signUpText}</p>
-              <a href={signUpLink.url} className="underline">
+              <a href={signUpLink.url} className="underline ml-2">
                 {signUpLink.text}
               </a>
             </div>
@@ -150,7 +154,7 @@ export const Login1Defaults = {
     url: "/signup",
   },
   title: "Log In",
-  description: "Lorem ipsum dolor sit amet adipiscing elit.",
+  description: "Login to your velora account.",
   logInButton: {
     title: "Log in",
   },

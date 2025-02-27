@@ -6,7 +6,7 @@ import { RxChevronRight } from "react-icons/rx";
 
 export function Blogs() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-100 to-purple-200 mt-12">
       <div className="container">
         <div className="rb-12 mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
           <h2 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">

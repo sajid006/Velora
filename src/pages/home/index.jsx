@@ -2,7 +2,7 @@ import React from "react";
 import {
   Navbar,
   SearchProducts,
-  Categories,
+  ShortCategories,
   Products,
   Stats,
   Testimonial,
@@ -16,7 +16,7 @@ export default function Page() {
     <div>
       <Navbar />
       <SearchProducts />
-      <Categories />
+      <ShortCategories />
       <Products />
       <Stats />
       <Testimonial />

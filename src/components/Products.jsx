@@ -56,12 +56,17 @@ export const Products = (props) => {
   }, [api]);
 
   return (
-    <section id="relume" className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28">
+    <section
+      id="relume"
+      className="overflow-hidden px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-100 to-purple-200 mt-12"
+    >
       <div className="container">
         <div className="mb-12 grid grid-cols-1 items-end gap-12 md:mb-18 md:grid-cols-[1fr_max-content] lg:mb-20 lg:gap-20">
           <div className="max-w-lg">
             <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-            <h1 className="mb-3 text-5xl font-bold md:mb-4 md:text-7xl lg:text-8xl">{heading}</h1>
+            <h1 className="mb-3 text-5xl font-bold md:mb-4 md:text-7xl lg:text-8xl">
+              {heading}
+            </h1>
             <p className="md:text-md">{description}</p>
           </div>
           <Button {...button} className="hidden md:flex">
@@ -94,7 +99,7 @@ export const Products = (props) => {
                     onClick={() => api?.scrollTo(index)}
                     className={clsx(
                       "mx-[3px] size-2 rounded-full",
-                      current === index + 1 ? "bg-black" : "bg-neutral-light",
+                      current === index + 1 ? "bg-black" : "bg-neutral-light"
                     )}
                   />
                 ))}
@@ -115,7 +120,11 @@ const ProductCard = ({ url, image, title, price, variant, button }) => {
   return (
     <div>
       <a href={url} className="mb-3 block aspect-[5/6] md:mb-4">
-        <img src={image.src} alt={image.alt} className="size-full object-cover" />
+        <img
+          src={image.src}
+          alt={image.alt}
+          className="size-full object-cover"
+        />
       </a>
       <a href={url} className="flex justify-between md:text-md">
         <div className="mr-4">
