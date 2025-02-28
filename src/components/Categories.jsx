@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const apiUrl = import.meta.env.VITE_API_URL;
+import { apiUrl } from '../utils/constants';
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);

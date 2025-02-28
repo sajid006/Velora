@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import { apiUrl } from "../../utils/constants";
 
 const initialState = {
   loading: false,
@@ -68,6 +68,7 @@ export const verify = createAsyncThunk("auth/verify", async () => {
 
 export const logout = createAsyncThunk("auth/logout", () => {
   console.log("logging out...");
+  location.reload();
   localStorage.setItem("user", "");
 });
 

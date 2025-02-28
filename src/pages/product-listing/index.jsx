@@ -4,8 +4,7 @@ import { Navbar, Footer, ProductCarousel } from "../../components";
 import { Product6 } from "./components/Product6";
 import { Layout242 } from "./components/Layout242";
 import { Cta3 } from "./components/Cta3";
-
-const apiUrl = import.meta.env.VITE_API_URL;
+import { apiUrl } from "../../utils/constants";
 
 export default function Page() {
   const [products, setProducts] = React.useState([]);

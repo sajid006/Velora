@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { Navbar7 } from "./components/Navbar7";
 import { ProductHeader2 } from "./components/ProductHeader2";
 import { Layout16 } from "./components/Layout16";
@@ -8,6 +9,7 @@ import { Gallery2 } from "./components/Gallery2";
 import { Footer1 } from "./components/Footer1";
 
 export default function Page() {
+  // const { id } = useParams();
   return (
     <div>
       <Navbar7 />

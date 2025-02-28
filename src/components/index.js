@@ -6,6 +6,7 @@ import { Footer } from "./Footer";
 import { Login } from "./Login";
 import { Navbar } from "./Navbar";
 import { NotFound } from "./NotFound";
+import Profile from "./Profile";
 import { ProductHeader } from "./ProductHeader";
 import { Products } from "./Products";
 import { SearchProducts } from "./SearchProducts";
@@ -14,6 +15,7 @@ import { ShortCategories } from "./ShortCategories";
 import { Stats } from "./Stats";
 import { Subscribe } from "./Subscribe";
 import { Testimonial } from "./Testimonial";
+import Wishlist from "./WishList";
 
 export {
   Blogs,
@@ -24,6 +26,7 @@ export {
   Login,
   Navbar,
   NotFound,
+  Profile,
   ProductHeader,
   Products,
   SearchProducts,
@@ -32,4 +35,5 @@ export {
   Stats,
   Subscribe,
   Testimonial,
+  Wishlist,
 };

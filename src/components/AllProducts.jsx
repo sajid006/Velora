@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const apiUrl = import.meta.env.VITE_API_URL;
+import { apiUrl } from '../utils/constants';
 
 export const AllProducts = ({searchValue, heading}) => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState(searchValue);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [sortCriteria, setSortCriteria] = useState('price');
   const limit = 12;
 
@@ -20,7 +20,8 @@ export const AllProducts = ({searchValue, heading}) => {
             limit
           }
         });
-        console.log(response.data.products);
+        console.log(response.data);
+        setTotalPages(response.data.totalPages);
         setProducts(response.data.products);
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -28,6 +29,7 @@ export const AllProducts = ({searchValue, heading}) => {
     };
     searchValue && setSearch(searchValue);
     fetchProducts();
+    console.log(page, totalPages);
   }, [searchValue, search, page]);
 
 
@@ -88,7 +90,7 @@ export const AllProducts = ({searchValue, heading}) => {
         {paginatedProducts.map((product) => (
           <div key={product.id} className="bg-white p-4 rounded-2xl shadow-md">
             <img
-              src={product.image}
+              src={product.image_url}
               alt={product.name}
               className="w-full h-40 object-cover rounded-lg"
             />
@@ -111,7 +113,7 @@ export const AllProducts = ({searchValue, heading}) => {
         </button>
         <button
           onClick={nextPage}
-          disabled={page * limit >= filteredProducts.length}
+          disabled={page === totalPages}
           className="p-2 bg-blue-500 text-white rounded-2xl"
         >
           Next

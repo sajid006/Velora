@@ -53,7 +53,7 @@ export function SearchProducts() {
                 value={formState.search}
                 onChange={formState.handleSetSearch}
               />
-              <Button title="Search">Search</Button>
+              <Button title="Search" className="bg-blue-500 hover:bg-blue-600">Search</Button>
             </form>
           </div>
         </div>

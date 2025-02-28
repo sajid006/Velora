@@ -1,5 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { Button } from "@relume_io/relume-ui";
@@ -26,6 +27,7 @@ const indicatorStyles = {
 };
 export const ProductCarousel = ({ title, description, products }) => {
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const chunkSize = 4;
@@ -34,9 +36,14 @@ export const ProductCarousel = ({ title, description, products }) => {
     for (let i = 0; i < products.length; i += chunkSize) {
       productChunks.push(products.slice(i, i + chunkSize));
     }
+    console.log(productChunks);
     setData(productChunks);
   }, [products]);
 
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    navigate('/products');
+  }
   return (
     <div className="my-12 p-4 bg-gradient-to-r from-blue-100 to-purple-200 cursor-pointer">
         <div className="mb-12 grid grid-cols-1 items-end gap-12 md:mb-18 md:grid-cols-[1fr_max-content] lg:mb-20 lg:gap-20">
@@ -49,8 +56,8 @@ export const ProductCarousel = ({ title, description, products }) => {
             </p>
           </div>
           <div className="hidden md:flex h-full items-center mr-4">
-            <Button variant="secondary" size="primary" title="View all">
-              View all
+            <Button variant="secondary" size="primary" title="View all" className="bg-blue-500 hover:bg-blue-600 text-white" onClick={handleButtonClick}>
+              View All
             </Button>
           </div>
         </div>
@@ -108,7 +115,7 @@ export const ProductCarousel = ({ title, description, products }) => {
           {chunk.map((product) => (
             <Card key={product.id} className="p-4 rounded-2xl shadow-lg">
               <img
-                src={product.image}
+                src={product.image_url}
                 alt={product.name}
                 className="h-40 w-full object-cover rounded-lg"
               />

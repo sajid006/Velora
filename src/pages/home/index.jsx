@@ -1,9 +1,11 @@
 import React from "react";
+import axios from "axios";
+import { apiUrl } from "../../utils/constants";
 import {
   Navbar,
   SearchProducts,
   ShortCategories,
-  Products,
+  ProductCarousel,
   Stats,
   Testimonial,
   Blogs,
@@ -12,12 +14,22 @@ import {
 } from "../../components";
 
 export default function Page() {
+  const [products, setProducts] = React.useState([]);
+  React.useEffect(() => {
+    axios
+      .get(`${apiUrl}/products`)
+      .then((response) => setProducts(response.data.products));
+  }, []);
   return (
     <div>
       <Navbar />
       <SearchProducts />
       <ShortCategories />
-      <Products />
+      <ProductCarousel
+        title={`Top Products`}
+        description={`Find out what our customers are buying.`}
+        products={products}
+      />
       <Stats />
       <Testimonial />
       <Blogs />

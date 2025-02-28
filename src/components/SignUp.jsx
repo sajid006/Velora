@@ -175,5 +175,5 @@ export const Signup1Defaults = {
     title: "Sign up with Google",
     iconLeft: <BiLogoGoogle className="size-6" />,
   },
-  footerText: "© 2024 Velora. All rights reserved.",
+  footerText: "© 2025 Velora. All rights reserved.",
 };

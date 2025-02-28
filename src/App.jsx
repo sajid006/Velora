@@ -5,7 +5,7 @@ import ProductListing from './pages/product-listing';
 import Cart from './pages/cart';
 import Checkout from './pages/checkout';
 import OrderHistory from './pages/order-history';
-import User from './pages/user';
+import Profile from './pages/profile';
 import Wishlist from './pages/wishlist';
 import Signup from './pages/signup';
 import Login from './pages/login';
@@ -19,15 +19,15 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product-details" element={<ProductDetails />} />
-        <Route path="/product-listing" element={<ProductListing />} />
+        <Route path="/products" element={<ProductListing />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/product-search" element={<ProductSearch />}/>
         {/* <Route path="/about-us" element={<AboutUs />}/> */}
         {/* <Route path="/career" element={<Career />}/> */}
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-history" element={<OrderHistory />} />
-        <Route path="/profile" element={<User />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

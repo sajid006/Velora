@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import clsx from "clsx";
-// import type { ButtonProps, CarouselApi } from "@relume_io/relume-ui";
 import {
   Button,
   Carousel,
@@ -12,38 +12,21 @@ import {
   CarouselPrevious,
 } from "@relume_io/relume-ui";
 
-// type ImageProps = {
-//   src: string;
-//   alt?: string;
-// };
-
-// type ProductCardProps = {
-//   url: string;
-//   image: ImageProps;
-//   title: string;
-//   price: string;
-//   variant: string;
-//   button: ButtonProps;
-// };
-
-// type Props = {
-//   tagline: string;
-//   heading: string;
-//   description: string;
-//   button: ButtonProps;
-//   products: ProductCardProps[];
-// };
-
-// export type Product6Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
 export const Products = (props) => {
-  const { tagline, heading, description, button, products } = {
-    ...Product6Defaults,
+  const { heading, description, button, products } = {
     ...props,
   };
 
   const [api, setApi] = useState();
   const [current, setCurrent] = useState(0);
+
+
+  const navigate = useNavigate();
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    navigate('/products')
+  };
 
   useEffect(() => {
     if (!api) {
@@ -69,7 +52,7 @@ export const Products = (props) => {
             </h1>
             <p className="md:text-md">{description}</p>
           </div>
-          <Button {...button} className="hidden md:flex">
+          <Button {...button} className="hidden md:flex bg-blue-500 hover:bg-blue-600 text-white"  onClick={handleButtonClick}>
             {button.title}
           </Button>
         </div>
@@ -138,37 +121,4 @@ const ProductCard = ({ url, image, title, price, variant, button }) => {
       </Button>
     </div>
   );
-};
-
-const productData = {
-  url: "#",
-  image: {
-    src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg",
-    alt: "Relume placeholder image",
-  },
-  title: "Product name",
-  price: "$55",
-  variant: "Variant",
-  button: { variant: "secondary", size: "sm", title: "Add to cart" },
-};
-
-export const Product6Defaults = {
-  tagline: "Tagline",
-  heading: "Products",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  button: {
-    variant: "secondary",
-    size: "primary",
-    title: "View all",
-  },
-  products: [
-    productData,
-    productData,
-    productData,
-    productData,
-    productData,
-    productData,
-    productData,
-    productData,
-  ],
 };
