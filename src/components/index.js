@@ -1,5 +1,6 @@
 import { Blogs } from "./Blogs";
 import Card from "./Card";
+import Cart from "./Cart";
 import { Categories } from "./Categories";
 import { ProductCarousel } from './ProductCarousel';
 import { Footer } from "./Footer";
@@ -8,7 +9,6 @@ import { Navbar } from "./Navbar";
 import { NotFound } from "./NotFound";
 import Profile from "./Profile";
 import { ProductHeader } from "./ProductHeader";
-import { Products } from "./Products";
 import { SearchProducts } from "./SearchProducts";
 import { Signup } from "./SignUp";
 import { ShortCategories } from "./ShortCategories";
@@ -20,6 +20,7 @@ import Wishlist from "./WishList";
 export {
   Blogs,
   Card,
+  Cart,
   Categories,
   ProductCarousel,
   Footer,
@@ -28,7 +29,6 @@ export {
   NotFound,
   Profile,
   ProductHeader,
-  Products,
   SearchProducts,
   Signup,
   ShortCategories,

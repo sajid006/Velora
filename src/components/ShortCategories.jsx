@@ -1,12 +1,16 @@
-"use client";
-
 import { Button } from "@relume_io/relume-ui";
-import { RxChevronRight } from "react-icons/rx";
 import Clothing from '../assets/Clothing.png';
 import HomeAppliances from '../assets/HomeAppliances.jpeg';
 import Electronics from '../assets/Electronics.jpeg';
+import Card from "./Card";
+import { useNavigate } from "react-router-dom";
 
 export function ShortCategories() {
+  const navigate = useNavigate();
+  const handleButtonClick = (e) => {
+    e.preventDefault();
+    navigate('/categories');
+  }
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-100 to-purple-200">
       <div className="container">
@@ -29,7 +33,7 @@ export function ShortCategories() {
             </div>
           </div>
           <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
+            <Card className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
               <div className="rb-5 mb-5 md:mb-6">
                 <img
                   src={Electronics}
@@ -41,8 +45,8 @@ export function ShortCategories() {
                 Electronics That Elevate Your Experience
               </h3>
               <p>Discover the latest gadgets and tech innovations.</p>
-            </div>
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
+            </Card>
+            <Card className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
               <div className="rb-5 mb-5 md:mb-6">
                 <img
                   src={Clothing}
@@ -54,8 +58,8 @@ export function ShortCategories() {
                 Fashion That Defines Your Unique Style
               </h3>
               <p>Stay trendy with our curated fashion selections.</p>
-            </div>
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
+            </Card>
+            <Card className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
               <div className="rb-5 mb-5 md:mb-6">
                 <img
                   src={HomeAppliances}
@@ -67,10 +71,10 @@ export function ShortCategories() {
                 Affordable Home Appliances for Modern Living
               </h3>
               <p>Upgrade your home with our efficient appliances.</p>
-            </div>
+            </Card>
           </div>
           <div className="mt-10 flex justify-center items-center gap-4 md:mt-14 lg:mt-16 w-full">
-            <Button className="bg-blue-500 hover:bg-blue-600">View All</Button>
+            <Button className="bg-blue-500 hover:bg-blue-600" onClick={handleButtonClick}>View All</Button>
           </div>
         </div>
       </div>

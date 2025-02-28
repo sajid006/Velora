@@ -42,7 +42,7 @@ export const ProductCarousel = ({ title, description, products }) => {
 
   const handleButtonClick = (e) => {
     e.preventDefault();
-    navigate('/products');
+    navigate('/product-search');
   }
   return (
     <div className="my-12 p-4 bg-gradient-to-r from-blue-100 to-purple-200 cursor-pointer">

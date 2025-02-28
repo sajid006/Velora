@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import ProductDetails from './pages/product-details';
-import ProductListing from './pages/product-listing';
+import Products from './pages/products';
 import Cart from './pages/cart';
 import Checkout from './pages/checkout';
 import OrderHistory from './pages/order-history';
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductListing />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/product-search" element={<ProductSearch />}/>
         {/* <Route path="/about-us" element={<AboutUs />}/> */}

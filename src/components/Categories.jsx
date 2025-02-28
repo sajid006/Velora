@@ -41,7 +41,7 @@ export const Categories = () => {
       <div className="grid grid-cols-4 gap-4">
         {filteredCategories.map((category) => (
           <div key={category.id} className="bg-white p-4 rounded-2xl shadow-md">
-            <img src={category.image} alt={category.name} className="w-full h-40 object-cover rounded-lg" />
+            <img src={category.image_url} alt={category.name} className="w-full h-40 object-cover rounded-lg" />
             <h2 className="text-lg font-bold mt-2">{category.name}</h2>
             <a href={category.link} className="text-blue-500 hover:underline cursor-pointer">Shop now</a>
           </div>
