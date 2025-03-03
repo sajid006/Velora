@@ -1,12 +1,12 @@
 import React from "react";
-import { Navbar7 } from "./components/Navbar7";
-import { Footer1 } from "./components/Footer1";
+import { Navbar, Footer, Checkout } from "../../components";
 
 export default function Page() {
   return (
     <div>
-      <Navbar7 />
-      <Footer1 />
+      <Navbar />
+      <Checkout />
+      <Footer />
     </div>
   );
 }

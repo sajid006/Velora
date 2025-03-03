@@ -4,6 +4,7 @@ import Card from "./Card";
 import { Career2 } from "./Career2";
 import Cart from "./Cart";
 import { Categories } from "./Categories";
+import Checkout from "./Checkout";
 import { Contact7 } from "./Contact7";
 import { Contact19 } from "./Contact19";
 import { Faq2 } from "./Faq2";
@@ -31,6 +32,7 @@ export {
   Career2,
   Cart,
   Categories,
+  Checkout,
   Contact7,
   Contact19,
   Faq2,

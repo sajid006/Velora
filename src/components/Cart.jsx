@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { apiUrl } from "../utils/constants";
 import Card from "./Card";
 
@@ -10,6 +11,7 @@ const Cart = () => {
     const [sortCriteria, setSortCriteria] = useState('price');
     const currentUser = useSelector((state) => state.auth.currentUser);
     const userToken = localStorage.getItem("user");
+    const navigate = useNavigate();
     console.log(currentUser, userToken);
 
     useEffect(() => {
@@ -130,6 +132,8 @@ const Cart = () => {
               </Card>
             ))}
           </div>
+          <button onClick={() => navigate('/checkout')} className="bg-blue-500 text-white p-2 rounded-lg mr-1">Proceed to checkout</button>
+                  
         </div>
       );
 };
