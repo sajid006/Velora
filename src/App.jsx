@@ -12,6 +12,7 @@ import Login from './pages/login';
 import NotFound from './pages/not-found';
 import Categories from './pages/categories'
 import ProductSearch from './pages/product-search';
+import OneCategory from './pages/one-category';
 import './App.css';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:id" element={<OneCategory />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

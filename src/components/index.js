@@ -7,6 +7,7 @@ import { Footer } from "./Footer";
 import { Login } from "./Login";
 import { Navbar } from "./Navbar";
 import { NotFound } from "./NotFound";
+import { OneCategory } from "./OneCategory";
 import Profile from "./Profile";
 import { ProductHeader } from "./ProductHeader";
 import { SearchProducts } from "./SearchProducts";
@@ -27,6 +28,7 @@ export {
   Login,
   Navbar,
   NotFound,
+  OneCategory,
   Profile,
   ProductHeader,
   SearchProducts,

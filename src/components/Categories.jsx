@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { apiUrl } from '../utils/constants';
+import { useNavigate } from 'react-router-dom';
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const limit = 12;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -26,6 +28,10 @@ export const Categories = () => {
     category.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const handleDetailsClick = (id) => {
+    navigate(`/categories/${id}`);
+  }
+
   const nextPage = () => setPage(page + 1);
   const prevPage = () => setPage(page > 1 ? page - 1 : 1);
 
@@ -43,7 +49,7 @@ export const Categories = () => {
           <div key={category.id} className="bg-white p-4 rounded-2xl shadow-md">
             <img src={category.image_url} alt={category.name} className="w-full h-40 object-cover rounded-lg" />
             <h2 className="text-lg font-bold mt-2">{category.name}</h2>
-            <a href={category.link} className="text-blue-500 hover:underline cursor-pointer">Shop now</a>
+            <div onClick={() => handleDetailsClick(category.id)} className="text-blue-500 hover:underline cursor-pointer">Shop now</div>
           </div>
         ))}
       </div>
