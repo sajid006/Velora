@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AboutUs from './pages/about-us';
+import Career from './pages/career'
 import Home from './pages/home';
 import ProductDetails from './pages/product-details';
 import Products from './pages/products';
@@ -23,8 +25,8 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/product-search" element={<ProductSearch />}/>
-        {/* <Route path="/about-us" element={<AboutUs />}/> */}
-        {/* <Route path="/career" element={<Career />}/> */}
+        <Route path="/about-us" element={<AboutUs />}/>
+        <Route path="/career" element={<Career />}/>
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-history" element={<OrderHistory />} />
