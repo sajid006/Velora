@@ -2,9 +2,11 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Survey2 from '../assets/Survey2.webp';
 
 export function Stats() {
+  const navigate = useNavigate();
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
@@ -35,8 +37,8 @@ export function Stats() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <Button variant="primary">Learn More</Button>
-              <Button variant="secondary">Explore</Button>
+              <Button variant="primary" onClick={() => navigate('/about-us')} className="bg-blue-500 border-none hover:bg-blue-600">Learn More</Button>
+              <Button variant="secondary" onClick={() => navigate('/products')} className="hover:bg-gray-100">Explore</Button>
             </div>
           </div>
         </div>

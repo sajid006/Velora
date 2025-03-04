@@ -126,6 +126,7 @@ export const ProductCarousel = ({ title, description, products }) => {
                   <span className="text-yellow-500">5.0 ⭐</span>
                   <span className="text-green-600">${product.price}</span>
                 </div>
+                <a href={`/products/${product.id}`} className="text-blue-500 hover:underline">View Details</a>
               </CardContent>
             </Card>
           ))}

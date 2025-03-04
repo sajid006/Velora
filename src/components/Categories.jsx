@@ -37,6 +37,7 @@ export const Categories = () => {
 
   return (
     <div className="p-4 my-12 bg-gradient-to-r from-blue-100 to-purple-200">
+      <div className="text-center text-3xl font-[500] mb-4">Categories</div>
       <input
         type="text"
         placeholder="Search categories..."

@@ -34,7 +34,7 @@ export function ShortCategories() {
           </div>
           <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
             <Card className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
-              <div className="rb-5 mb-5 md:mb-6">
+              <div className="rb-5 mb-5 md:mb-6 cursor-pointer" onClick={() => navigate('/categories/3')}>
                 <img
                   src={Electronics}
                   alt="Relume logo"
@@ -47,7 +47,7 @@ export function ShortCategories() {
               <p>Discover the latest gadgets and tech innovations.</p>
             </Card>
             <Card className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
-              <div className="rb-5 mb-5 md:mb-6">
+              <div className="rb-5 mb-5 md:mb-6 cursor-pointer" onClick={() => navigate('/categories/5')}>
                 <img
                   src={Clothing}
                   alt="Relume logo"
@@ -60,7 +60,7 @@ export function ShortCategories() {
               <p>Stay trendy with our curated fashion selections.</p>
             </Card>
             <Card className="bg-white rounded-2xl border border-gray-200 shadow-md transition transform hover:shadow-xl hover:-translate-y-2 hover:border-gray-400 p-4">
-              <div className="rb-5 mb-5 md:mb-6">
+              <div className="rb-5 mb-5 md:mb-6 cursor-pointer" onClick={() => navigate('/categories/4')}>
                 <img
                   src={HomeAppliances}
                   alt="Relume logo"

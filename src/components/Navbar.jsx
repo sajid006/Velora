@@ -12,6 +12,7 @@ import { IoLogOut } from "react-icons/io5";
 import Velora from "../assets/Velora2.png";
 import { useDispatch } from "react-redux";
 import { logout, verify } from "../store/slices/authSlice";
+import { LogoutModal } from "./modals/LogoutModal";
 
 const useRelume = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,6 +51,7 @@ export function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState(null);
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
 
   const verifyUser = async () => {
     const userInfo = await dispatch(verify());
@@ -63,6 +65,10 @@ export function Navbar() {
   const logoutHandler = () => {
     setCurrentUser(null);
     dispatch(logout());
+    setLogoutModalOpen(false);
+  }
+  const logoutClose = () => {
+    setLogoutModalOpen(false);
   }
   return (
     <section
@@ -450,7 +456,7 @@ export function Navbar() {
                       </div>
                     </div>
                   </div>
-                  <div className="relative mb-6 flex w-full flex-col items-start justify-between p-6 sm:items-center lg:mb-0 lg:flex-row lg:px-0 lg:py-4">
+                  {/* <div className="relative mb-6 flex w-full flex-col items-start justify-between p-6 sm:items-center lg:mb-0 lg:flex-row lg:px-0 lg:py-4">
                     <div className="absolute -left-[50vw] -right-[50vw] bottom-0 top-0 w-[200vw] bg-background-secondary" />
                     <div className="relative mb-4 grid auto-cols-fr grid-cols-[max-content] grid-rows-[auto_auto] items-center gap-x-2 gap-y-4 lg:mb-0 lg:flex lg:items-center">
                       <p>
@@ -494,7 +500,7 @@ export function Navbar() {
                         Cart
                       </Button>
                     </div>
-                  </div>
+                  </div> */}
                 </motion.nav>
               </AnimatePresence>
             </div>
@@ -519,8 +525,9 @@ export function Navbar() {
               <IoLogOut
                 title="Logout"
                 className="size-8 cursor-pointer"
-                onClick={logoutHandler}
+                onClick={() => setLogoutModalOpen(true)}
               />
+              {logoutModalOpen && <LogoutModal isOpen={logoutModalOpen} onClose={logoutClose} onConfirm={logoutHandler} />}
             </div>
           ) : (
             <div className="flex items-center gap-4">

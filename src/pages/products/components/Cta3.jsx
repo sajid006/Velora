@@ -2,8 +2,10 @@
 
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Cta3() {
+  const navigate = useNavigate();
   return (
     <section id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container relative z-10">
@@ -16,9 +18,9 @@ export function Cta3() {
             finds!
           </p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-            <Button title="Explore">Explore</Button>
-            <Button title="Sign Up" variant="secondary-alt">
-              Sign Up
+            <Button title="Explore" onClick={() => navigate('/categories')}>Explore</Button>
+            <Button title="Sign Up" variant="secondary" onClick={() => navigate('/product-search')}>
+              View More
             </Button>
           </div>
         </div>

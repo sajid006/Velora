@@ -69,7 +69,7 @@ export const OneCategory = () => {
 
   return (
     <div className="p-4 bg-gradient-to-r from-green-100 to-blue-200">
-      {heading && <div className="text-center text-xl font-[500] mb-4">{heading}</div>}
+      {heading && <div className="text-center text-3xl font-[500] mb-4">{heading}</div>}
       <div className="flex justify-between items-center mb-4">
       <input
         type="text"
@@ -105,7 +105,7 @@ export const OneCategory = () => {
             <p className="text-gray-600">${product.price}</p>
             <p className="text-yellow-500">Rating: {product.rating}</p>
             <p>Added: {product.date}</p>
-            <a href="#" className="text-blue-500 hover:underline">View Details</a>
+            <a href={`/products/${product.id}`} className="text-blue-500 hover:underline">View Details</a>
           </div>
         ))}
       </div>
