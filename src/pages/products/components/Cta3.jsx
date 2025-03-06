@@ -3,6 +3,7 @@
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Ecommerce1 from '../../../assets/ecommerce1.webp';
 
 export function Cta3() {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ export function Cta3() {
             finds!
           </p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-            <Button title="Explore" onClick={() => navigate('/categories')}>Explore</Button>
-            <Button title="Sign Up" variant="secondary" onClick={() => navigate('/product-search')}>
+            <Button title="Explore" onClick={() => navigate('/categories')} className="bg-blue-500 border-none hover:bg-blue-600">Explore</Button>
+            <Button title="Sign Up" variant="secondary" onClick={() => navigate('/product-search')} className="border-none hover:bg-gray-100">
               View More
             </Button>
           </div>
@@ -27,7 +28,7 @@ export function Cta3() {
       </div>
       <div className="absolute inset-0 z-0">
         <img
-          src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+          src={Ecommerce1}
           className="size-full object-cover"
           alt="Relume placeholder image"
         />

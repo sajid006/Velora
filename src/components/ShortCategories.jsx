@@ -12,7 +12,7 @@ export function ShortCategories() {
     navigate('/categories');
   }
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-100 to-purple-200">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-300 to-purple-200">
       <div className="container">
         <div className="flex flex-col items-start">
           <div className="rb-12 mb-12 grid grid-cols-1 items-start justify-between gap-5 md:mb-18 md:grid-cols-2 md:gap-x-12 md:gap-y-8 lg:mb-20 lg:gap-x-20">

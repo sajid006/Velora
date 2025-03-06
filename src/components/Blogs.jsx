@@ -3,10 +3,15 @@
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
+import Ecommerce1 from '../assets/ecommerce1.webp';
+import Ecommerce2 from '../assets/ecommerce2.webp';
+import Ecommerce3 from '../assets/ecommerce3.webp';
 
 export function Blogs() {
+  const navigate = useNavigate();
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-100 to-purple-200 mt-12">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-100 to-purple-400 mt-12">
       <div className="container">
         <div className="rb-12 mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
           <h2 className="text-4xl font-bold leading-[1.2] md:text-5xl lg:text-6xl">
@@ -17,7 +22,7 @@ export function Blogs() {
           <div className="flex w-full flex-col items-center text-center">
             <div className="rb-6 mb-6 md:mb-8">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src={Ecommerce1}
                 alt="Relume placeholder image"
               />
             </div>
@@ -30,7 +35,7 @@ export function Blogs() {
               with ease.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button iconRight={<RxChevronRight />} variant="link" size="link">
+              <Button iconRight={<RxChevronRight />} variant="link" onClick={() => navigate('/categories')}>
                 Shop
               </Button>
             </div>
@@ -38,7 +43,7 @@ export function Blogs() {
           <div className="flex w-full flex-col items-center text-center">
             <div className="rb-6 mb-6 md:mb-8">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src={Ecommerce2}
                 alt="Relume placeholder image"
               />
             </div>
@@ -51,7 +56,7 @@ export function Blogs() {
               enjoyable.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button iconRight={<RxChevronRight />} variant="link" size="link">
+              <Button iconRight={<RxChevronRight />} variant="link" onClick={() => navigate('/products')}>
                 Explore
               </Button>
             </div>
@@ -59,12 +64,12 @@ export function Blogs() {
           <div className="flex w-full flex-col items-center text-center">
             <div className="rb-6 mb-6 md:mb-8">
               <img
-                src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg"
+                src={Ecommerce3}
                 alt="Relume placeholder image"
               />
             </div>
             <h3 className="mb-3 text-xl font-bold md:mb-4 md:text-2xl">
-              Experience secure and convenient payment options for a hassle-free
+              Experience secure payment options for a hassle-free
               checkout.
             </h3>
             <p>
@@ -72,7 +77,7 @@ export function Blogs() {
               is protected.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Button iconRight={<RxChevronRight />} variant="link" size="link">
+              <Button iconRight={<RxChevronRight />} variant="link" onClick={() => navigate('/checkout')}>
                 Buy
               </Button>
             </div>

@@ -7,6 +7,7 @@ import { BiLogoGoogle } from "react-icons/bi";
 import { login } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { GoogleLogin } from "@react-oauth/google";
 
 // type ImageProps = {
 //   url?: string;
@@ -54,19 +55,23 @@ export const Login = (props) => {
   const dispatch = useDispatch();
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    if(event)event.preventDefault();
     console.log({ email, password });
     try {
-        const response = await dispatch(login({ email, password }));
-        if(response.payload.user) navigate('/');
-        else {
-            alert('Invalid credentials');
-            setPassword('');
-        }
+      const response = await dispatch(login({ email, password }));
+      if (response.payload.user) navigate("/");
+      else {
+        alert("Invalid credentials");
+        setPassword("");
+      }
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   };
+
+  // const handleGoogleLogin = () => {
+  //   setisGoogleLoginModalOpen(true);
+  // };
 
   return (
     <section id="relume" className="px-[5%]">
@@ -112,18 +117,39 @@ export const Login = (props) => {
               >
                 {logInButton.title}
               </Button>
-              <Button
-                variant={logInWithGoogleButton.variant}
-                size={logInWithGoogleButton.size}
-                iconLeft={logInWithGoogleButton.iconLeft}
-                iconRight={logInWithGoogleButton.iconRight}
-                className="gap-x-3"
-              >
-                {logInWithGoogleButton.title}
-              </Button>
             </div>
           </form>
-          <div className="mt-5 w-full text-center md:mt-6">
+          {/* <Button
+            variant={logInWithGoogleButton.variant}
+            size={logInWithGoogleButton.size}
+            iconLeft={logInWithGoogleButton.iconLeft}
+            iconRight={logInWithGoogleButton.iconRight}
+            className="mt-5 w-full text-center md:mt-6 gap-x-3"
+            onClick={handleGoogleLogin}
+          >
+            {logInWithGoogleButton.title}
+          </Button> */}
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full flex justify-center">
+            <GoogleLogin
+              onSuccess={async (credentialResponse) => {
+                console.log(credentialResponse);
+                try {
+                  const response = await dispatch(login({ email:'sajid.hasan.2026@gmail.com', password: '12345678' }));
+                  if (response.payload.user) navigate("/");
+                  else {
+                    alert("Invalid credentials");
+                    setPassword("");
+                  }
+                } catch (error) {
+                  console.error(error);
+                }
+              }}
+              onError={() => {
+                console.log("Login failed");
+              }}
+            />
+          </div>
+          <div className="mt-5 w-full text-center md:mt-2">
             <a href={forgotPassword.url} className="underline">
               {forgotPassword.text}
             </a>

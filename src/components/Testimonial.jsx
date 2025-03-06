@@ -5,7 +5,7 @@ import { BiSolidStar } from "react-icons/bi";
 
 export function Testimonial() {
   return (
-    <section id="relume" className="overflow-hidden py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-100 to-purple-200">
+    <section id="relume" className="overflow-hidden py-16 md:py-24 lg:py-28 bg-gradient-to-r from-blue-400 to-purple-200">
       <div className="container">
         <div className="mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto max-w-lg text-center">

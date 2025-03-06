@@ -3,8 +3,10 @@
 import { Button } from "@relume_io/relume-ui";
 import React from "react";
 import Subscription from "../assets/Subscription.webp";
+import { useNavigate } from "react-router-dom";
 
 export function Subscribe() {
+  const navigate = useNavigate();
   return (
     <section id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28 mt-12">
       <div className="container relative z-10">
@@ -17,8 +19,8 @@ export function Subscribe() {
             delivered straight to your inbox!
           </p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-            <Button title="Subscribe">Subscribe</Button>
-            <Button title="Learn More" variant="secondary">
+            <Button title="Subscribe" className="bg-blue-500 border-none hover:bg-blue-600" onClick={() => navigate('/career')}>Subscribe</Button>
+            <Button title="Learn More" className="border-none hover:bg-gray-100" onClick={() => navigate('/about-us')} variant="secondary">
               Learn More
             </Button>
           </div>

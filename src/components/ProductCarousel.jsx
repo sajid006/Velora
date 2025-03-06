@@ -45,7 +45,7 @@ export const ProductCarousel = ({ title, description, products }) => {
     navigate('/product-search');
   }
   return (
-    <div className="my-12 p-4 bg-gradient-to-r from-blue-100 to-purple-200 cursor-pointer">
+    <div className="my-12 p-4 bg-gradient-to-r from-blue-300 to-purple-300 cursor-pointer">
         <div className="mb-12 grid grid-cols-1 items-end gap-12 md:mb-18 md:grid-cols-[1fr_max-content] lg:mb-20 lg:gap-20">
           <div className="max-w-lg">
             <h1 className="mb-3 text-5xl font-bold md:mb-4 md:text-7xl lg:text-8xl">
