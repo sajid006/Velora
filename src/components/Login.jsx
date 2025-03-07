@@ -2,38 +2,11 @@
 
 import { useState } from "react";
 import { Button, Input, Label } from "@relume_io/relume-ui";
-// import type { ButtonProps } from "@relume_io/relume-ui";
 import { BiLogoGoogle } from "react-icons/bi";
-import { login } from "../store/slices/authSlice";
+import { login, googleLogin } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { GoogleLogin } from "@react-oauth/google";
-
-// type ImageProps = {
-//   url?: string;
-//   src: string;
-//   alt?: string;
-// };
-
-// type Props = {
-//   logo: ImageProps;
-//   signUpText: string;
-//   signUpLink: {
-//     text: string;
-//     url: string;
-//   };
-//   title: string;
-//   description: string;
-//   logInButton: ButtonProps;
-//   logInWithGoogleButton: ButtonProps;
-//   forgotPassword: {
-//     text: string;
-//     url: string;
-//   };
-//   footerText: string;
-// };
-
-// export type Login1Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+import { useGoogleLogin } from "@react-oauth/google";
 
 export const Login = (props) => {
   const {
@@ -69,9 +42,18 @@ export const Login = (props) => {
     }
   };
 
-  // const handleGoogleLogin = () => {
-  //   setisGoogleLoginModalOpen(true);
-  // };
+  const handleGoogleLogin = useGoogleLogin({
+    onSuccess: async ({ code }) => {
+      console.log(code);
+      const response = await dispatch(googleLogin({code}));
+      console.log(response);
+      if(response.payload.user) navigate('/');
+      else {
+        alert("Failed to log in with google");
+      }
+    },
+    flow: 'auth-code',
+  });
 
   return (
     <section id="relume" className="px-[5%]">
@@ -119,7 +101,7 @@ export const Login = (props) => {
               </Button>
             </div>
           </form>
-          {/* <Button
+          <Button
             variant={logInWithGoogleButton.variant}
             size={logInWithGoogleButton.size}
             iconLeft={logInWithGoogleButton.iconLeft}
@@ -128,27 +110,7 @@ export const Login = (props) => {
             onClick={handleGoogleLogin}
           >
             {logInWithGoogleButton.title}
-          </Button> */}
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full flex justify-center">
-            <GoogleLogin
-              onSuccess={async (credentialResponse) => {
-                console.log(credentialResponse);
-                try {
-                  const response = await dispatch(login({ email:'sajid.hasan.2026@gmail.com', password: '12345678' }));
-                  if (response.payload.user) navigate("/");
-                  else {
-                    alert("Invalid credentials");
-                    setPassword("");
-                  }
-                } catch (error) {
-                  console.error(error);
-                }
-              }}
-              onError={() => {
-                console.log("Login failed");
-              }}
-            />
-          </div>
+          </Button>
           <div className="mt-5 w-full text-center md:mt-2">
             <a href={forgotPassword.url} className="underline">
               {forgotPassword.text}

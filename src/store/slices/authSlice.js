@@ -27,6 +27,26 @@ export const login = createAsyncThunk(
   }
 );
 
+export const googleLogin = createAsyncThunk(
+  "auth/googleLogin",
+  async (userDetails, { rejectWithValue }) => {
+    const config = { withCredentials: true };
+    console.log(userDetails);
+    try {
+      const res = await axios.post(
+        `${apiUrl}/users/googlelogin`,
+        userDetails,
+        config
+      );
+      localStorage.setItem("user", res.headers.authorization.split(" ")[1]);
+      return res.data;
+    } catch (e) {
+      console.error(e);
+      return rejectWithValue(e.message);
+    }
+  }
+);
+
 export const register = createAsyncThunk(
   "auth/register",
   async (userDetails, { rejectWithValue }) => {
@@ -46,7 +66,7 @@ export const register = createAsyncThunk(
 
 export const verify = createAsyncThunk("auth/verify", async () => {
   const userToken = localStorage.getItem("user");
-  if(!userToken) return null;
+  if (!userToken) return null;
   console.log(userToken);
   try {
     const userDetails = await axios.post(
@@ -86,6 +106,19 @@ export const authSlice = createSlice({
       state.currentUser = payload.username;
     });
     builder.addCase(login.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    });
+
+    // google login user
+    builder.addCase(googleLogin.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(googleLogin.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.currentUser = payload.username;
+    });
+    builder.addCase(googleLogin.rejected, (state, { payload }) => {
       state.loading = false;
       state.error = payload;
     });
