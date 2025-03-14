@@ -1,58 +1,75 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
-import { useParams } from 'react-router-dom';
-import { apiUrl } from '../utils/constants';
-import { useSelector } from 'react-redux';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { FaHeart, FaShoppingCart, FaStar } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { apiUrl } from "../utils/constants";
+import { useSelector } from "react-redux";
 
 const ProductInfo = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
-  const currentUser = useSelector(state => state.auth.currentUser);
-  const userToken = localStorage.getItem('user') || null;
+  const currentUser = useSelector((state) => state.auth.currentUser);
+  const userToken = localStorage.getItem("user") || null;
   const addToCart = async () => {
-    const response = await axios.post(`${apiUrl}/carts/${currentUser}`, {productId: id, quantity: 1}, {
-      headers: {
-        Authorization: `Bearer ${userToken}`,
-      },
-    });
-    console.log(response);
-    if(response.status === 201){
-        alert('Product added to cart');
-    } else {
-        alert('Error adding product to cart');
+    try {
+      const response = await axios.post(
+        `${apiUrl}/carts/${currentUser}`,
+        { productId: id, quantity: 1 },
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      console.log(response);
+      if (response.status === 201) {
+        alert("Product added to cart");
+      } else {
+        alert("Error adding product to cart");
+      }
+    } catch (e) {
+      console.error(e);
+      alert("Error adding product to cart");
     }
-};
-const addToWishlist = async () => {
-  const response = await axios.post(`${apiUrl}/wishlists/${currentUser}`, {productId: id}, {
-    headers: {
-      Authorization: `Bearer ${userToken}`,
-    },
-  });
-  console.log(response);
-  if(response.status === 201){
-      alert('Product added to wishlist');
-  } else {
-      alert('Error adding product to wishlist');
-  }
-};
+  };
+  const addToWishlist = async () => {
+    try {
+      const response = await axios.post(
+        `${apiUrl}/wishlists/${currentUser}`,
+        { productId: id },
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      console.log(response);
+      if (response.status === 201) {
+        alert("Product added to wishlist");
+      } else {
+        alert("Error adding product to wishlist");
+      }
+    } catch (e) {
+      console.error(e);
+      alert("Error adding product to wishlist");
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
         const value = await axios.get(`${apiUrl}/products/${id}`);
         console.log(value);
-        if(value.data){
+        if (value.data) {
           setProduct(value.data);
         }
-      }
-      catch(e){
+      } catch (e) {
         console.error(e);
       }
-    }
+    };
     fetchData();
-  },[]);
+  }, []);
 
-  return product ? 
+  return product ? (
     <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Product Image */}
@@ -66,14 +83,18 @@ const addToWishlist = async () => {
 
         {/* Product Details */}
         <div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">{product.name}</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">
+            {product.name}
+          </h1>
           <div className="flex justify-center items-center mb-4">
             <span className="text-lg text-gray-700">${product.price}</span>
             <span className="ml-4 text-yellow-500 flex items-center">
               {[...Array(product.rating)].map((_, i) => (
                 <FaStar key={i} />
               ))}
-              <span className="ml-2 text-gray-600">({product.reviews_count} reviews)</span>
+              <span className="ml-2 text-gray-600">
+                ({product.reviews_count} reviews)
+              </span>
             </span>
           </div>
           <p className="text-gray-600 mb-6">{product.description}</p>
@@ -90,7 +111,7 @@ const addToWishlist = async () => {
           <div className="flex justify-center space-x-4">
             <button
               onClick={() => addToCart(product)}
-              className="py-2 px-4 bg-blue-500 text-white rounded-lg flex items-center hover:bg-blue-600"
+              className="py-2 px-4 bg-blue-500 border-none text-white rounded-lg flex items-center hover:bg-blue-600"
             >
               <FaShoppingCart className="mr-2" /> Add to Cart
             </button>
@@ -106,7 +127,9 @@ const addToWishlist = async () => {
 
       {/* Reviews Section */}
       <div className="mt-12">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Customer Reviews</h2>
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          Customer Reviews
+        </h2>
         {product.reviews && product.reviews.length > 0 ? (
           <ul className="space-y-6">
             {product.reviews.map((review, index) => (
@@ -125,7 +148,10 @@ const addToWishlist = async () => {
           <p className="text-gray-600">No reviews yet.</p>
         )}
       </div>
-    </div> : <p className="my-12 text-lg font-[500]">Product not available.</p>;
+    </div>
+  ) : (
+    <p className="my-12 text-lg font-[500]">Product not available.</p>
+  );
 };
 
 export default ProductInfo;

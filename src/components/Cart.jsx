@@ -126,13 +126,13 @@ const Cart = () => {
                 <p>Quantity: {product.quantity}</p>
                 <a href="#" className="text-blue-500 hover:underline">View Details</a>
                 <div className="flex justify-between">
-                  <button onClick={() => moveToWishList(product.productId)} className="bg-blue-500 text-white p-2 rounded-lg mr-1">Move to wishlist</button>
+                  <button onClick={() => moveToWishList(product.productId)} className="bg-blue-500 border-none text-white p-2 rounded-lg mr-1">Move to wishlist</button>
                   <button onClick={() => removeFromCart(product.id)} className="bg-red-500 text-white p-2 rounded-lg">Remove from Cart</button> 
                   </div>
               </Card>
             ))}
           </div>
-          <button onClick={() => navigate('/checkout')} className="bg-blue-500 text-white p-2 rounded-lg mr-1">Proceed to checkout</button>
+          <button onClick={() => navigate('/checkout')} className="bg-blue-500 border-none text-white p-2 rounded-lg mr-1">Proceed to checkout</button>
                   
         </div>
       );

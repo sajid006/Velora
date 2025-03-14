@@ -96,6 +96,7 @@ export const Login = (props) => {
                 size={logInButton.size}
                 iconLeft={logInButton.iconLeft}
                 iconRight={logInButton.iconRight}
+                className="bg-blue-500 border-none border-none hover:bg-blue-600"
               >
                 {logInButton.title}
               </Button>

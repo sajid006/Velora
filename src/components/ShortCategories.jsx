@@ -74,7 +74,7 @@ export function ShortCategories() {
             </Card>
           </div>
           <div className="mt-10 flex justify-center items-center gap-4 md:mt-14 lg:mt-16 w-full">
-            <Button className="bg-blue-500 hover:bg-blue-600" onClick={handleButtonClick}>View All</Button>
+            <Button className="bg-blue-500 border-none hover:bg-blue-600" onClick={handleButtonClick}>View All</Button>
           </div>
         </div>
       </div>

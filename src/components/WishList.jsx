@@ -111,7 +111,7 @@ const Wishlist = () => {
                 <p>Added: {product.date}</p>
                 <a href="#" className="text-blue-500 hover:underline">View Details</a>
                 <div className="flex justify-between">
-                  <button onClick={() => addToCart(product.productId)} className="bg-blue-500 text-white p-2 rounded-lg mr-1">Add to Cart</button>
+                  <button onClick={() => addToCart(product.productId)} className="bg-blue-500 border-none text-white p-2 rounded-lg mr-1">Add to Cart</button>
                   <button onClick={() => removeFromWishlist(product.id)} className="bg-red-500 text-white p-2 rounded-lg">Remove from Wishlist</button> 
                   </div>
               </Card>

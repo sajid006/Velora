@@ -21,7 +21,7 @@ const AboutUs = () => {
 
         <motion.div 
           whileHover={{ scale: 1.05 }}
-          className="bg-blue-500 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg cursor-pointer hover:bg-blue-600"
+          className="bg-blue-500 border-none text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg cursor-pointer hover:bg-blue-600"
           onClick={() => navigate('/products')}
         >
           Explore Our Products

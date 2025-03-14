@@ -37,7 +37,7 @@ export function Stats() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <Button variant="primary" onClick={() => navigate('/about-us')} className="bg-blue-500 border-none hover:bg-blue-600">Learn More</Button>
+              <Button variant="primary" onClick={() => navigate('/about-us')} className="bg-blue-500 border-none border-none hover:bg-blue-600">Learn More</Button>
               <Button variant="secondary" onClick={() => navigate('/products')} className="hover:bg-gray-100">Explore</Button>
             </div>
           </div>

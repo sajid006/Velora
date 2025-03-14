@@ -19,7 +19,7 @@ export function Subscribe() {
             delivered straight to your inbox!
           </p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-            <Button title="Subscribe" className="bg-blue-500 border-none hover:bg-blue-600" onClick={() => navigate('/career')}>Subscribe</Button>
+            <Button title="Subscribe" className="bg-blue-500 border-none border-none hover:bg-blue-600" onClick={() => navigate('/career')}>Subscribe</Button>
             <Button title="Learn More" className="border-none hover:bg-gray-100" onClick={() => navigate('/about-us')} variant="secondary">
               Learn More
             </Button>

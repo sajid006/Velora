@@ -46,7 +46,7 @@ const Checkout = () => {
         </div>
 
         <button
-          className="mt-6 w-full bg-blue-500 text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-600"
+          className="mt-6 w-full bg-blue-500 border-none text-white py-3 rounded-lg text-lg font-semibold hover:bg-blue-600"
         >
           Place Order
         </button>

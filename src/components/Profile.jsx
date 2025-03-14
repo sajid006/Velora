@@ -208,7 +208,7 @@ const ProfilePage = () => {
         </div>
         <button
           onClick={openPasswordModal}
-          className="w-full py-2 mt-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          className="w-full py-2 mt-4 bg-blue-500 border-none text-white rounded-lg hover:bg-blue-600"
         >
           Update Password
         </button>

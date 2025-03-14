@@ -56,7 +56,7 @@ export const ProductCarousel = ({ title, description, products }) => {
             </p>
           </div>
           <div className="hidden md:flex h-full items-center mr-4">
-            <Button variant="secondary" size="primary" title="View all" className="bg-blue-500 hover:bg-blue-600 text-white" onClick={handleButtonClick}>
+            <Button variant="secondary" size="primary" title="View all" className="bg-blue-500 border-none hover:bg-blue-600 text-white" onClick={handleButtonClick}>
               View All
             </Button>
           </div>

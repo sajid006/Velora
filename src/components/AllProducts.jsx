@@ -98,7 +98,7 @@ export const AllProducts = ({searchValue, heading}) => {
             <p className="text-gray-600">${product.price}</p>
             <p className="text-yellow-500">Rating: {product.rating}</p>
             <p>Added: {product.date}</p>
-            <a href="#" className="text-blue-500 hover:underline">View Details</a>
+            <a href={`/products/${product.id}`} className="text-blue-500 hover:underline">View Details</a>
           </div>
         ))}
       </div>
@@ -107,14 +107,14 @@ export const AllProducts = ({searchValue, heading}) => {
         <button
           onClick={prevPage}
           disabled={page === 1}
-          className="p-2 bg-blue-500 text-white rounded-2xl disabled:bg-gray-300"
+          className="p-2 bg-blue-500 border-none text-white rounded-2xl disabled:bg-gray-300"
         >
           Previous
         </button>
         <button
           onClick={nextPage}
           disabled={page === totalPages}
-          className="p-2 bg-blue-500 text-white rounded-2xl"
+          className="p-2 bg-blue-500 border-none text-white rounded-2xl"
         >
           Next
         </button>

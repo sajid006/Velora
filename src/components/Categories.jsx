@@ -55,8 +55,8 @@ export const Categories = () => {
         ))}
       </div>
       <div className="flex justify-between mt-4">
-        <button onClick={prevPage} disabled={page === 1} className="p-2 bg-blue-500 text-white rounded-2xl disabled:bg-gray-300">Previous</button>
-        <button onClick={nextPage} className="p-2 bg-blue-500 text-white rounded-2xl">Next</button>
+        <button onClick={prevPage} disabled={page === 1} className="p-2 bg-blue-500 border-none text-white rounded-2xl disabled:bg-gray-300">Previous</button>
+        <button onClick={nextPage} className="p-2 bg-blue-500 border-none text-white rounded-2xl">Next</button>
       </div>
     </div>
   );

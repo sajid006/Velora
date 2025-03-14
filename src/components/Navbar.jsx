@@ -85,13 +85,13 @@ export function Navbar() {
         <div className="absolute hidden h-screen overflow-auto border-b border-border-primary bg-background-primary px-[5%] pb-24 pt-4 md:pb-0 lg:static lg:ml-6 lg:flex lg:h-auto lg:flex-1 lg:items-center lg:justify-between lg:border-none lg:bg-none lg:px-0 lg:pt-0">
           <div className="flex flex-col items-center lg:flex-row">
             <a
-              href="products"
+              href="/products"
               className="relative block w-auto py-3 text-md lg:inline-block lg:px-4 lg:py-6 lg:text-base"
             >
               Shop Now
             </a>
             <a
-              href="contact"
+              href="/about-us"
               className="relative block w-auto py-3 text-md lg:inline-block lg:px-4 lg:py-6 lg:text-base"
             >
               Contact Us
@@ -144,7 +144,7 @@ export function Navbar() {
                             Explore Categories
                           </h4>
                           <a
-                            href="#"
+                            href="/categories/3"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -162,7 +162,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/categories/5"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -180,7 +180,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/categories/4"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -198,7 +198,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/categories/2"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -209,9 +209,9 @@ export function Navbar() {
                               />
                             </div>
                             <div className="flex flex-col items-start justify-center">
-                              <h5 className="font-semibold">Beauty Products</h5>
+                              <h5 className="font-semibold">Shoes</h5>
                               <p className="hidden text-sm md:block">
-                                Enhance your beauty with our selections.
+                                Select from a wide range of shoes.
                               </p>
                             </div>
                           </a>
@@ -221,7 +221,7 @@ export function Navbar() {
                             Additional Pages
                           </h4>
                           <a
-                            href="#"
+                            href="/profile"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -241,7 +241,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/profile"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -259,7 +259,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/wishlist"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -277,7 +277,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/cart"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -288,9 +288,9 @@ export function Navbar() {
                               />
                             </div>
                             <div className="flex flex-col items-start justify-center">
-                              <h5 className="font-semibold">Special Offers</h5>
+                              <h5 className="font-semibold">Cart</h5>
                               <p className="hidden text-sm md:block">
-                                Check out our latest discounts and deals.
+                                Check out the products in your cart.
                               </p>
                             </div>
                           </a>
@@ -300,7 +300,7 @@ export function Navbar() {
                             User Account
                           </h4>
                           <a
-                            href="#"
+                            href="/profile"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -320,7 +320,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="career"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -331,14 +331,14 @@ export function Navbar() {
                               />
                             </div>
                             <div className="flex flex-col items-start justify-center">
-                              <h5 className="font-semibold">Logout</h5>
+                              <h5 className="font-semibold">Career</h5>
                               <p className="hidden text-sm md:block">
-                                Securely sign out of your account.
+                                Check out our job openings.
                               </p>
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/about-us"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -356,7 +356,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/about-us"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -399,7 +399,7 @@ export function Navbar() {
                             </div>
                           </a>
                           <a
-                            href="#"
+                            href="/about-us"
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                           >
                             <div className="flex size-6 flex-col items-center justify-center">
@@ -542,6 +542,7 @@ export function Navbar() {
               <Button
                 title="Signup"
                 size="sm"
+                className="bg-blue-500 border-none hover:bg-blue-600"
                 onClick={() => navigate("/signup")}
               >
                 Sign up

@@ -137,6 +137,7 @@ export const Signup = (props) => {
                 size={signUpButton.size}
                 iconLeft={signUpButton.iconLeft}
                 iconRight={signUpButton.iconRight}
+                className="bg-blue-500 border-none border-none hover:bg-blue-600"
               >
                 {signUpButton.title}
               </Button>

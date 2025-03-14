@@ -114,14 +114,14 @@ export const OneCategory = () => {
         <button
           onClick={prevPage}
           disabled={page === 1}
-          className="p-2 bg-blue-500 text-white rounded-2xl disabled:bg-gray-300"
+          className="p-2 bg-blue-500 border-none text-white rounded-2xl disabled:bg-gray-300"
         >
           Previous
         </button>
         <button
           onClick={nextPage}
           disabled={page === totalPages}
-          className="p-2 bg-blue-500 text-white rounded-2xl"
+          className="p-2 bg-blue-500 border-none text-white rounded-2xl"
         >
           Next
         </button>

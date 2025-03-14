@@ -46,7 +46,7 @@ const NameUpdateModal = ({
           </button>
           <button
             onClick={handleNameUpdate}
-            className="py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            className="py-2 px-4 bg-blue-500 border-none text-white rounded-lg hover:bg-blue-600"
           >
             Update Name
           </button>

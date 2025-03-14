@@ -19,7 +19,7 @@ export function Cta3() {
             finds!
           </p>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-            <Button title="Explore" onClick={() => navigate('/categories')} className="bg-blue-500 border-none hover:bg-blue-600">Explore</Button>
+            <Button title="Explore" onClick={() => navigate('/categories')} className="bg-blue-500 border-none border-none hover:bg-blue-600">Explore</Button>
             <Button title="Sign Up" variant="secondary" onClick={() => navigate('/product-search')} className="border-none hover:bg-gray-100">
               View More
             </Button>
